@@ -8,10 +8,7 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({children}) => {
 
     return (
-
-        <div>
-            skeleton div
-
+        <div>skeleton Footer
         </div>
     )
 }
