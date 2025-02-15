@@ -9,6 +9,7 @@ export const Header: React.FC<HeaderProps> = ({children}) => {
 
     return (
         <div>skeleton Header
+
         </div>
     )
 }
