@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import "./searchBar.css"
 
 const SearchDropdown = () => {
   const [searchInput, setSearchInput] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const countries = [
-    { name: "Diamond Earrings", continent: "Jewelery" },
-    { name: "Jeans", continent: "Clothes" },
-    { name: "iPhone 15", continent: "Electronics" },
-    { name: "Pebbles", continent: "Miscellaneous" },
-    { name: "Harry Potter", continent: "Books" },
+  const items = [
+    { name: "Diamond Earrings", category: "Jewelery" },
+    { name: "Jeans", category: "Clothes" },
+    { name: "iPhone 15", category: "Electronics" },
+    { name: "Pebbles", category: "Miscellaneous" },
+    { name: "Harry Potter", category: "Books" },
 
   ];
 
@@ -23,42 +24,48 @@ const SearchDropdown = () => {
     setIsDropdownOpen(false);
   };
 
-  const filteredCountries = countries.filter((country) =>
-    country.name.toLowerCase().includes(searchInput.toLowerCase()) ||
-  country.continent.toLowerCase().includes(searchInput.toLowerCase())
+  const filteredItems = items.filter((item) =>
+    item.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+  item.category.toLowerCase().includes(searchInput.toLowerCase())
   );
 
   return (
-    <div className="relative w-64 mx-auto mt-10">
+    <form action="" className="search-bar">
       <input
-        type="text"
-        placeholder="Search for an item..."
+        type="search"
+        name="search"
+        pattern=".*\\S.*"
+        required
         value={searchInput}
         onChange={handleChange}
         onFocus={() => setIsDropdownOpen(true)}
         onBlur={() => setTimeout(() => setIsDropdownOpen(false), 200)}
-        className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
       />
+      <button className="search-btn" type="submit">
+        <span>Search</span>
+      </button>
 
       {isDropdownOpen && searchInput.length > 0 && (
-        <ul className="absolute w-full bg-white border border-gray-200 rounded shadow-md max-h-60 overflow-y-auto">
-          {filteredCountries.length > 0 ? (
-            filteredCountries.map((country, index) => (
+        <ul className="dropdown-list">
+          {filteredItems.length > 0 ? (
+            filteredItems.map((item, index) => (
               <li
                 key={index}
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                onClick={() => handleSelect(country.name)}
+                className="dropdown-item"
+                onClick={() => handleSelect(item.name)}
               >
-                {country.name}
+                {item.name}
               </li>
             ))
           ) : (
-            <li className="px-4 py-2 text-gray-500">No results found</li>
+            <li className="dropdown-item no-results">No results found</li>
           )}
         </ul>
       )}
-    </div>
+    </form>
   );
 };
 
 export default SearchDropdown;
+
+
