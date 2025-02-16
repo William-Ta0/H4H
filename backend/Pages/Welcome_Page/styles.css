@@ -1,0 +1,159 @@
+body {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/4/41/Santa_Clara%2C_CA_USA_-_Santa_Clara_University%2C_Mission_Santa_Clara_de_Asis_-_panoramio_%282%29_%28cropped%29.jpg);
+    background-size: cover;
+    font-weight: 400;
+    text-align: center;
+    background-attachment: fixed;
+}
+
+h1 {
+    font-family: 'Lucida Console', Monospace;
+    font-size: 10vh;
+    color: white;
+    margin-top: 18vh;
+    margin-bottom: 2vh;
+    -webkit-text-stroke: 2px black;
+    text-align: center;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+.animated-text span {
+    position: relative;
+    font-family: 'Lucida Console', Monospace;
+    color: lightgoldenrodyellow;
+}
+
+.animated-text span::before {
+    content: "Bucky's Closet";
+    animation: words 20s infinite;
+}
+
+.animated-text span::after {
+    content: "";
+    position: absolute;
+    width: calc(100% + 8px); /* Fixed width for the cursor */
+    height: 100%;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/4/41/Santa_Clara%2C_CA_USA_-_Santa_Clara_University%2C_Mission_Santa_Clara_de_Asis_-_panoramio_%282%29_%28cropped%29.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    border-left: 2px solid lightgoldenrodyellow;
+    right: -8px; 
+    animation: cursor 0.8s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+    to{
+        border-left: 2px solid #ff7f5000;
+    }
+}
+
+@keyframes words {
+    0%, 50% {
+        content: "Bucky's Closet";
+    }
+    50.01%, 100% {
+        content: "Daly Science";
+    }
+}
+
+@keyframes typing {
+    10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+        width: 0;
+    }
+    5%,20%,25%,40%,45%,60%,65%,80%,85%{
+        width: calc(100% + 8px);
+    }
+}
+
+.upper_left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-left: 1vw;
+    padding-top: 1.1vh;
+    transform: translate(0px, -10px);
+    z-index: 0;
+    opacity: 100%;
+    height: 16.5vh;
+}
+
+.aspect-ratio-box {
+    position: flex;
+    opacity: 88%;
+    width: 40vh;
+    height: 40vh;
+    box-shadow: 17px 17px 8px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 100%;
+    top: 50%;
+    transform: translateY(20%);
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+
+.aspect-ratio-box img {
+    position: flex;
+    left: 0;
+    object-fit: cover;
+}
+
+
+.header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 5.5vh;
+    padding-bottom: 5.5vh;
+    padding-right: 2.2vw;
+    padding-left: 2.2vw;
+    position: fixed;
+    background: rgba(171, 224, 254, 0.25);
+    backdrop-filter: blur(3px);
+    transition: backdrop-filter 0.5s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.header:hover {
+    backdrop-filter: blur(0);
+}
+
+.header img {
+    opacity: 100%;
+}
+
+.navbar a {
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3vh;
+    color: white;
+    font-weight: 900;
+    text-decoration: none;
+    margin-left: 4vh;
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: .3s;
+}
+
+
+.navbar a:hover::before {
+    width: 100%;
+}

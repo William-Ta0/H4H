@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link href="styles.css" rel="stylesheet" />
+  <title>Welcome Page</title>
+</head>
+
+<body>
+  <header class="header">
+    <a target="_blank" href="https://www.scu.edu/sustainability/programs/circulareconomy/buckyscloset/">
+      <img class="upper_left"
+        src="https://www.scu.edu/media/offices/sustainability/SUST-0824-Bucky_s-Closet-Sign-and-Mark-Final-760x759.png" />
+    </a>
+    <!-- Insert links down below:-->
+    <nav class="navbar">
+      <a target="_blank" href="Welcome.html">Home</a>
+      <a target="_blank" href="#">Upload</a>
+      <a target="_blank" href="#">Explore</a>
+      <a target="_blank" href="#">Sign Up</a>
+    </nav>
+  </header>
+  <h1 class="animated-text">Welcome to <span></span></h1>
+  <img class="aspect-ratio-box" id="r1-image" />
+  <img class="aspect-ratio-box" id="r2-image" />
+  <img class="aspect-ratio-box" id="r3-image" />
+  <script>
+    const imagePool = [
+      "https://live.staticflickr.com/878/41757080064_2aba42920f.jpg",
+      "https://live.staticflickr.com/1742/41757080374_0d27e06d41_m.jpg",
+      "https://cdn.pixabay.com/photo/2011/11/16/11/28/earrings-10332_1280.jpg",
+      "https://cdn.pixabay.com/photo/2016/03/27/19/31/fashion-1283863_1280.jpg",
+      "https://cdn.pixabay.com/photo/2017/03/20/20/36/blue-jeans-2160265_1280.jpg",
+    ];
+
+    function getRandomImage() {
+      const randomIndex = Math.floor(Math.random() * imagePool.length);
+      return imagePool[randomIndex];
+    }
+
+    function changeImage() {
+      const imageElement1 = document.getElementById("r1-image");
+      imageElement1.src = getRandomImage();
+      const imageElement2 = document.getElementById("r2-image");
+      imageElement2.src = getRandomImage();
+      const imageElement3 = document.getElementById("r3-image");
+      imageElement3.src = getRandomImage();
+    }
+
+    window.onload = function () {
+      changeImage();
+      setInterval(changeImage, 1800);
+    };
+  </script>
+</body>
+
+</html>
