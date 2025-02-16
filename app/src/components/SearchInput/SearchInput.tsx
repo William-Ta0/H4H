@@ -1,4 +1,4 @@
-import {useToolTip} from "../../hooks/useToolTip.tsx";
+import {useToolTip} from "../../hooks/useToolTip.ts";
 import React, {useState} from "react";
 import {ToolTip} from "../ToolTip.tsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
