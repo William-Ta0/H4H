@@ -2,9 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const userRoutes = require('./routes/userRoutes');
+const itemRoutes = require('./routes/itemRoutes');
 
 dotenv.config();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5001;
 const MONGO_URL = process.env.MONGO_URL;
 const app = express();
 
@@ -16,8 +18,18 @@ app.get('/', (req, res) => {
   res.send('Hello from the server! This is the root route.');
 });
 
+app.use('/api/users', userRoutes);
+app.use('/api/items', itemRoutes);
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+}).on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`Port ${PORT} is already in use. Please try another port.`);
+  } else {
+    console.error('Server error:', err);
+  }
+  process.exit(1);
 });
 
 mongoose.connect(MONGO_URL, {
@@ -32,6 +44,5 @@ mongoose.connect(MONGO_URL, {
     console.error('Error code:', err.code);
     process.exit(1);
 });
-
 
 module.exports = app;
