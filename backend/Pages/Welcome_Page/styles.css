@@ -105,7 +105,28 @@ h1 {
     object-fit: cover;
 }
 
+.uniquebutton {
+    position: absolute;
+    width: 7vw;
+    margin-right: 1vw;
+    top: 5.5vh;
+    right: 1vw;
+    height: calc(1.5vh + 20px);
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+    z-index: 1;
+}
 
+.submit {
+    background-color: #B30738;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+}
 .header {
     top: 0;
     left: 0;
@@ -140,6 +161,7 @@ h1 {
     font-weight: 900;
     text-decoration: none;
     margin-left: 4vh;
+    z-index: 0;
 }
 
 .navbar a::before {
