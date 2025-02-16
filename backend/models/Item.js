@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
+const { v4: uuidv4 } = require('uuid'); // Import uuid
 
 const itemSchema = new mongoose.Schema({
+  itemID: {
+    type: String,
+    default: uuidv4, // Automatically generate a unique ID
+    unique: true, // Ensure itemID is unique
+  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     required: true, // Reference to the user's ID
