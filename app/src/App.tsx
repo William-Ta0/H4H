@@ -1,6 +1,5 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css'
 import {Home} from "./components/pages/Home.tsx";
 import MainLayout from "./components/layouts/MainLayout.tsx";
 import NotFound from "./components/pages/NotFound.tsx";
@@ -10,6 +9,7 @@ function App() {
 
   return (
         <>
+            <div>
             <BrowserRouter>
                 <Routes>
                     {/* MainLayout is the parent layout */}
@@ -21,6 +21,7 @@ function App() {
                     </Route>
                 </Routes>
             </BrowserRouter>
+            </div>
 
         </>
   )

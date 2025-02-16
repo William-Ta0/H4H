@@ -2,18 +2,26 @@
 import {Outlet} from 'react-router-dom'
 import {Header} from "../Header.tsx";
 import {Footer} from "../Footer.tsx";
+import "../../App.css"
 export default function  MainLayout (){
 
     return(
-        <div>
+        <>
+        {/* Main Layout */}
+        <div className="h-screen flex flex-col p-4 border">
             {/* Header */}
-            <Header/>
-            <div>
-                {/* show only if user is authenticated*/}
-                <Outlet/>
+            <div className="h-28 flex-none ">
+                <Header/>
             </div>
-            {/*Footer*/}
-            <Footer/>
+            <div className="flex-grow">
+                {/* show only if user is authenticated*/}
+               <Outlet/>
+            </div>
+            <div className=" h-10">
+                {/*Footer*/}
+                <Footer/>
+            </div>
         </div>
+        </>
     )
 }
