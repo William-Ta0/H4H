@@ -24,4 +24,14 @@ router.post('/checkout/:itemId', async (req, res) => {
   }
 });
 
+// Route to get available items
+router.get('/available', async (req, res) => {
+  try {
+    const availableItems = await itemController.getAvailableItems();
+    res.status(200).json(availableItems); // Return the available items
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 module.exports = router; 

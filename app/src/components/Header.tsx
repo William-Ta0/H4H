@@ -1,35 +1,40 @@
-import  React from "react";
-import {Button} from "./Button.tsx";
+import React from "react";
+import { Link } from "react-router-dom";
 import SearchInput from "./SearchInput/SearchInput.tsx";
+import { Button } from "./Button.tsx";
 
 interface HeaderProps {
-    children?: React.ReactNode
+    children?: React.ReactNode;
 }
 
-
-export const Header: React.FC<HeaderProps> = ({children}) => {
-
+export const Header: React.FC<HeaderProps> = ({ children }) => {
     return (
-        <div className="h-full flex flex-col justify-center iterms-center  ">
-            <div className = "flex flex-row justify-between items-center ">
-                <div className="h-full flex flex-row justify-around items-center space-x-8  mx-4 " >
-                    <div>Placeholder </div>
-                    <div>Placeholder</div>
+        <div className="h-full flex flex-col justify-center items-center bg-[#b30638] text-white">
+            <div className="flex flex-row justify-between items-center w-full p-4">
+                {/* Logo */}
+                <div className="text-2xl font-bold">
+                    <Link to="/">Bucky's Campus Closet</Link>
                 </div>
 
-                    <div className=" h-full  flex flex-grow justify-center items-center hidden md:flex">
-                        <SearchInput/>
-                    </div>
-                <div className="h-full hidden sm:flex flex-row justify-between items-center  space-x-8 mx-4" >
-                        <div> place holder</div>
-                        <div> place holder</div>
-                </div>
-                <div className='h-full flex flex-row justify-center items-center space-x-8 mx-4'>
-                    <Button title={"login"} to={""}/>
+                {/* Navigation Menu */}
+                <nav className="hidden md:flex space-x-8">
+                    <Link to="/" className="hover:text-gray-400">Home</Link>
+                    <Link to="/about" className="hover:text-gray-400">About Us</Link>
+                    <Link to="/services" className="hover:text-gray-400">Services</Link>
+                    <Link to="/contact" className="hover:text-gray-400">Contact</Link>
+                </nav>
+
+                {/* Search Input */}
+                <div className="hidden md:flex">
+                    <SearchInput />
                 </div>
 
+                {/* User Account Links */}
+                <div className="flex space-x-4">
+                    <Button title="Login" to="/login" />
+                    <Button title="Sign Up" to="/signup.html" />
+                </div>
             </div>
-
         </div>
-    )
-}
+    );
+};

@@ -1,9 +1,12 @@
+import React from 'react';
+import AvailableItems from '../AvailableItems';
+import { Header } from '../Header';
 
-
-export const Home = () => {
-    return(
+export const Home: React.FC = () => {
+    return (
         <div>
-            home page
+            {/* <p>Available Items</p> */}
+            <AvailableItems />
         </div>
-    )
-}
+    );
+};
