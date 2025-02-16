@@ -5,8 +5,3 @@ export interface Item {
 
 }
 
-export interface UseItemsResult {
-    items: Item[];
-    loading: boolean;
-    error: string | null;
-}
