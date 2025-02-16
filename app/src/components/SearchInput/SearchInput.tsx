@@ -23,7 +23,7 @@ export default function SearchInput() {
 
 
     return (
-        <div className=" h-12 w-[70%] flex flex-row rounded-full  border "
+        <div className=" h-12 min-w-[12rem] w-[70%] flex flex-row rounded-full  border "
              onMouseEnter={(e)=> mouseEnter(e,"Search what we are looking for?")}
              onMouseLeave={mouseLeave}
         >

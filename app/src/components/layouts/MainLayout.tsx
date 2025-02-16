@@ -8,7 +8,7 @@ export default function  MainLayout (){
     return(
         <>
         {/* Main Layout */}
-        <div className="h-screen flex flex-col p-4 border">
+        <div className="h-screen flex flex-col p-4 overflow-hidden">
             {/* Header */}
             <div className="h-28 flex-none ">
                 <Header/>
